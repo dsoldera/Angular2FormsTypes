@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
+
+function passwordMatcher(c: AbstractControl) {
+  return c.get('password').value === c.get('confirmPassword').value
+    ? null : {'nomatch': true};
+}
 
 @Component({
   moduleId: module.id,
@@ -17,9 +23,10 @@ export class ReactiveFormsComponent {
         email: '',
         account: this._fb.group({
           username: '',
-          password: '',
-          confirmPassword: '',
-        }),
+          password: ['', Validators.required],
+          confirmPassword: ['', Validators.required],
+        },  {validator: passwordMatcher}),
+        newsletter: '',
         check: ''
     });
     this.reactiveForm.patchValue({
@@ -29,5 +36,4 @@ export class ReactiveFormsComponent {
 
     console.log("constructor Reactive Form")
    }
-
 }

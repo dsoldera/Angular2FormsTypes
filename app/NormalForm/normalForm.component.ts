@@ -1,4 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, OnInit } from '@angular/core';
+import { AbstractControl, NG_VALIDATORS } from '@angular/forms';
+
+
+function passwordMatcher(c: AbstractControl) {
+  console.log('calling function passwordMatcher');
+
+  if (!c.get('password') || !c.get('confirmPassword'))
+  return null
+  return c.get('password').value === c.get('confirmPassword').value
+    ? {'nomatch': false} : {'nomatch': true};
+}
+
+@Directive({
+  selector: '[password-matcher]',
+  providers: [
+    {provide: NG_VALIDATORS, multi: true, useValue: passwordMatcher}
+  ]
+})
+
+export class PasswordMatcher {}
 
 @Component({
   moduleId: module.id,
@@ -6,7 +26,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'normalForm.component.html'
 })
 
-export class NormalFormComponent implements OnInit {
+export class NormalFormComponent {
   values = '';
   values2 = '';
 
@@ -15,17 +35,7 @@ export class NormalFormComponent implements OnInit {
     this.values2 += (<HTMLInputElement>event.target).value + ' | ';
   }
 
-  public firstName: string;
-  public lastName: string;
-  public email: string;
-  public username: string;
-  public password: string;
-  public confirmPassword: string;
-  public check: string;
-
   constructor() {
     console.log('constructor Normal Form'); 
   }
-
-  ngOnInit() { }
 }

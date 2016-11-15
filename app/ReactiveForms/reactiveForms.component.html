@@ -32,6 +32,9 @@
       <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Password">
     </div>
   </fieldset>
+  <div class="form-group">
+    <switch-control formControlName="newsletter"></switch-control>
+  </div>
   <div class="form-check">
     <label class="form-check-label">
       <input type="checkbox" class="form-check-input" formControlName="check">
@@ -44,3 +47,4 @@
 <pre>{{ reactiveForm.value | json  }}</pre>
 <p>Form Status: {{ reactiveForm.status }}</p>
 <p>Password Status {{ reactiveForm.get('account.password').status }}</p>
+<p>Account status: {{ reactiveForm.get('account').errors | json }}</p>

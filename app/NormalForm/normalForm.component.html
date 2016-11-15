@@ -13,15 +13,15 @@
       <input type="text" name="lastName" ngModel class="form-control" placeholder="Last Name">
     </div>
   </fieldset>
-  <fieldset class="form-group" ngModelGroup="account">
+  <fieldset class="form-group" ngModelGroup="account" password-matcher #account="ngModelGroup">
     <legend>Account Settings</legend>
     <div class="form-group">
       <label for="email">Email address</label>
-      <input type="email" class="form-control" ngModel name="email" placeholder="Enter email">
+      <input type="email" (keyup)="onKey($event)" class="form-control" #email ngModel name="email" placeholder="Enter email">
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" (keyup)="onKey($event)" class="form-control" #password ngModel name="password" placeholder="Password" required>
+      <input type="password" class="form-control" ngModel name="password" placeholder="Password" required>
     </div>
     <div class="form-group">
       <label for="confirmPassword">Confirm Password</label>
@@ -39,6 +39,6 @@
 <br />
 <pre>{{ form.value | json }}</pre>
 <p>Form Status: {{ form.control.status }}</p>
-<p>Password className: {{ password.className }}</p>
-<p>Password: {{ values }}</p>
-<p>Password: {{ values2 }}</p>
+<p>Email: {{ values }}</p>
+<p>Email: {{ values2 }}</p>
+ <p>Account errors: {{ account.control?.errors | json  }}</p>

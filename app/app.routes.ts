@@ -2,7 +2,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsComponent } from './ReactiveForms/reactiveForms.component';
 import { FormsModulesComponent } from './FormsModules/formModules.component';
-import { NormalFormComponent } from './NormalForm/normalForm.component';
+import { NormalFormComponent, PasswordMatcher } from './NormalForm/normalForm.component';
+import { SwitchControlComponent } from './SwitchControl/switchControl.component';
 
 const appRoutes: Routes = [
   { path: '', component: ReactiveFormsComponent },
@@ -23,5 +24,7 @@ export class AppRoutingModule {}
 export const routableComponents:any = [
   FormsModulesComponent,
   ReactiveFormsComponent,
-  NormalFormComponent
+  NormalFormComponent,
+  PasswordMatcher,
+  SwitchControlComponent
 ]

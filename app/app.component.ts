@@ -5,10 +5,9 @@ import { Component } from '@angular/core';
     selector: 'app',
     template: `
               <ul class="nav nav-inline">
-                  <li class="nav-item"><a class="nav-link" [routerLink]="['/']">Home</a></li>
-                  <li class="nav-item"><a class="nav-link" [routerLink]="['/form']">Forms Module</a></li>
                   <li class="nav-item"><a class="nav-link" [routerLink]="['/reactive']">Reactive Forms</a></li>
                   <li class="nav-item"><a class="nav-link" [routerLink]="['/normal']">Normal Form</a></li>
+                  <li class="nav-item"><a class="nav-link" [routerLink]="['/form']">Forms Module</a></li>
               </ul>
 
               <h1>Angular 2 Forms Types </h1>

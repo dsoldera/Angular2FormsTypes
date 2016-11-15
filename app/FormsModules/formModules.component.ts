@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { formModel } from '../models/form2.model';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   moduleId: module.id,
