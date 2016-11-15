@@ -1,36 +1,36 @@
-<h2>Angular 2 Form Modules</h2>
+<h2>Normal Angular 2 Form</h2>
 <br />
 <!--To hook Angular 2 Forms you need to insert #form="ngForm" -->
-<form novalidate [formGroup]="form">
+<form novalidate #form="ngForm">
   <fieldset class="form-group">
     <legend>Personal Settings</legend>
     <div class="form-group">
       <label for="firstName">First Name</label>
-      <input type="text" formControlName="firstName" class="form-control" placeholder="First Name">
+      <input type="text" name="firstName" ngModel class="form-control" placeholder="First Name">
     </div>
     <div class="form-group">
       <label for="lastName">Last Name</label>
-      <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name">
+      <input type="text" name="lastName" ngModel class="form-control" placeholder="Last Name">
     </div>
   </fieldset>
   <fieldset class="form-group">
     <legend>Account Settings</legend>
     <div class="form-group">
       <label for="email">Email address</label>
-      <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+      <input type="email" class="form-control" ngModel name="email" placeholder="Enter email">
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" formControlName="password" placeholder="Password">
+      <input type="password" class="form-control" ngModel name="password" placeholder="Password">
     </div>
     <div class="form-group">
       <label for="confirmPassword">Confirm Password</label>
-      <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Password">
+      <input type="password" class="form-control" ngModel name="confirmPassword" placeholder="Password">
     </div>
   </fieldset>
   <div class="form-check">
     <label class="form-check-label">
-      <input type="checkbox" class="form-check-input" formControlName="check">
+      <input type="checkbox" class="form-check-input" ngModel name="check">
       Check me out
     </label>
   </div>
