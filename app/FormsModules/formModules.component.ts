@@ -16,11 +16,12 @@ export class FormsModulesComponent {
         firstName: 'Danielle',
         lastName: '',
         email: '',
+        username: '',
         password: '',
         confirmPassword: '',
         check: ''
     });
 
-    console.log("constructor")
+    console.log("constructor Form Module")
    }
 }

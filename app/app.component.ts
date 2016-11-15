@@ -12,7 +12,6 @@ import { Component } from '@angular/core';
               </ul>
 
               <h1>Angular 2 Forms Types </h1>
-              <p>An Angular 2 Types of Forms Code - Reactives and Template Driven</p>
               <router-outlet></router-outlet>` 
 })
 

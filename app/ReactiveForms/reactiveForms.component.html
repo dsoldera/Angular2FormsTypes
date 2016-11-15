@@ -1,58 +1,46 @@
 <h2>Angular 2 Reactive Forms Modules</h2>
 <br />
-<form novalidate>
+<!--To hook Angular 2 Forms you need to insert #form="ngForm" -->
+<form novalidate [formGroup]="reactiveForm">
   <fieldset class="form-group">
     <legend>Personal Settings</legend>
     <div class="form-group">
       <label for="firstName">First Name</label>
-      <input type="text" name="firstName" class="form-control" placeholder="First Name">
+      <input type="text" formControlName="firstName" class="form-control" placeholder="First Name">
     </div>
     <div class="form-group">
       <label for="lastName">Last Name</label>
-      <input type="text" name="lastName" class="form-control" placeholder="Last Name">
+      <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name">
     </div>
-  </fieldset>
-  <fieldset class="form-group">
-    <legend>Account Settings</legend>
     <div class="form-group">
       <label for="email">Email address</label>
-      <input type="email" class="form-control" name="email" placeholder="Enter email">
+      <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+    </div>
+  </fieldset>
+  <fieldset class="form-group" formGroupName="account">
+    <legend>Account Settings</legend>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" formControlName="username" placeholder="Username">
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="Password">
+      <input type="password" class="form-control" formControlName="password" placeholder="Password">
     </div>
     <div class="form-group">
-      <label for="confirm-password">Confirm Password</label>
-      <input type="password" class="form-control" name="confirm-password" placeholder="Password">
-    </div>
-  </fieldset>
-  <fieldset class="form-group">
-    <legend>Radio buttons</legend>
-    <div class="form-check">
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-        Option one is this and that&mdash;be sure to include why it's great
-      </label>
-    </div>
-    <div class="form-check">
-    <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-        Option two can be something else and selecting it will deselect option one
-      </label>
-    </div>
-    <div class="form-check disabled">
-    <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-        Option three is disabled
-      </label>
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Password">
     </div>
   </fieldset>
   <div class="form-check">
     <label class="form-check-label">
-      <input type="checkbox" class="form-check-input">
+      <input type="checkbox" class="form-check-input" formControlName="check">
       Check me out
     </label>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br />
+<pre>{{ reactiveForm.value | json  }}</pre>
+<p>Form Status: {{ reactiveForm.status }}</p>
+<p>Password Status {{ reactiveForm.get('account.password').status }}</p>

@@ -5,7 +5,7 @@ import { FormsModulesComponent } from './FormsModules/formModules.component';
 import { NormalFormComponent } from './NormalForm/normalForm.component';
 
 const appRoutes: Routes = [
-  { path: '', component: FormsModulesComponent },
+  { path: '', component: ReactiveFormsComponent },
   { path: 'form', component: FormsModulesComponent },
   { path: 'reactive', component: ReactiveFormsComponent },
   { path: 'normal', component: NormalFormComponent }

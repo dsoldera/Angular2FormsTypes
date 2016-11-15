@@ -7,7 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NormalFormComponent implements OnInit {
-  constructor() { }
+  values = '';
+  values2 = '';
+
+   onKey(event:any) {
+    this.values += event.target.value + ' | ';
+    this.values2 += (<HTMLInputElement>event.target).value + ' | ';
+  }
+
+  public firstName: string;
+  public lastName: string;
+  public email: string;
+  public username: string;
+  public password: string;
+  public confirmPassword: string;
+  public check: string;
+
+  constructor() {
+    console.log('constructor Normal Form'); 
+  }
 
   ngOnInit() { }
 }
